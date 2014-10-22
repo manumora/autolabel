@@ -1,0 +1,12 @@
+Source: autolabel
+Section: python
+Priority: extra
+Maintainer: Manuel Mora Gordillo <manuito@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+
+Package: autolabel
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-ldap
+Description: Autoetiquetado de portatiles
+ Autolabel etiqueta el portatil de cada alumno

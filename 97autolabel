@@ -1,0 +1,18 @@
+#!/bin/sh   
+
+if [ -z "$1" ]; then
+    echo "$0: called with no interface" 1>&2
+    exit 1;
+fi
+
+# Run the right scripts
+case "$2" in
+    up)
+        /usr/bin/python /usr/share/autolabel/autolabel.py &
+        exit 0
+        ;;
+    *)
+        echo "$0: called with unknown action \`$2'" 1>&2
+        exit 0
+        ;;
+esac

@@ -1,0 +1,5 @@
+autolabel.py usr/share/autolabel
+config usr/share/autolabel
+LdapConnection.py usr/share/autolabel
+97autolabel etc/NetworkManager/dispatcher.d
+
