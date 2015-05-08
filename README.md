@@ -45,4 +45,4 @@ Autolabel is free software: you can redistribute it and/or modify it under the t
 
 Agradecimientos
 ---------------
-A Antonio J. Abasolo Sierra por su asesoramiento :)
+A Antonio J. Abasolo Sierra por su asesoramiento y a mi compi Chisco por aguantarme :)
