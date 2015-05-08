@@ -8,13 +8,25 @@ Autolabel
 
 Descripción
 ---------------------
-Se sustituyen las etiquetas físicas de los portátiles (con la información del alumno asignado) por etiquetas virtuales para una reasignación más rápida en cada nuevo curso.
+Se sustituyen las etiquetas físicas de los portátiles (con la información del alumno asignado) por etiquetas virtuales para una reasignación más rápida en cada nuevo inicio de curso.
 
 ¿Cómo configurarlo?
 ---------------------
-0. En primer lugar hay que registar los equipos portátiles de los alumnos en la base de datos LDAP mediante ControlIES.
+0. En primer lugar hay que registar los equipos portátiles de los alumnos en la base de datos LDAP mediante ControlIES. El portátil permanecerá fijo en el aula asignándole un número de aula y una posición en la misma.
 0. A continuación asignaremos los portátiles de cada aula a sus alumnos respectivos.
+0. Teniendo instalado autolabel en los equipos portátiles de los alumnos, este consultará a LDAP y etiquetará el equipo con los datos del alumno al que pertenece.
 
+¿Cómo sabe el alumno cuál es su portátil?
+---------------------
+Los portátiles están etiquetados físicamente con el número de aula y número de equipo. El número de equipo de un alumno debería coincidir con el número de alumno en el listado de alumnos del profesor ya que es una relación ordenada alfabéticamente.
+
+¿Y qué pasará en el siguiente curso?
+---------------------
+Tan sólo habrá que hacer el paso 2, reasignar los portátiles con ControlIES.
+
+¿Y si en el nuevo curso no coincide el número de portátiles con el número de alumnos?
+---------------------
+En ese caso tendremos que reubicar el número de equipos necesarios
 
 License
 -------
