@@ -1,3 +1,9 @@
+autolabel (0.1-2) unstable; urgency=low
+
+  * Change wlan0 to eth0
+
+ -- Manuel Mora Gordillo <manuito@gmail.com>  Thu, 21 May 2015 08:30:00 +0200
+
 autolabel (0.1-1) unstable; urgency=low
 
   * First Debian package

@@ -45,25 +45,26 @@ clear_packages
 dpkg-buildpackage -b
 
 git rm ./packages/*.deb
-rm ./packages/*.deb
+#rm ./packages/*.deb
+mkdir packages
 mv ../autolabel*.deb ./packages
 git add ./packages/*.deb -v
 
 clear_packages
 clear_cache
 
-#git rm ./puppet/instala_autolabel/files/*.deb
-#mkdir ./puppet/instala_autolabel/files
-#cp ./packages/*.deb ./puppet/instala_autolabel/files
-#git add ./puppet/instala_autolabel/files/*.deb -v
+git rm ./puppet/instala_autolabel/files/*.deb
+mkdir ./puppet/instala_autolabel/files
+cp ./packages/*.deb ./puppet/instala_autolabel/files
+git add ./puppet/instala_autolabel/files/*.deb -v
 
 # Reemplaza la nueva version en init.pp
-#VERSION=`echo ./packages/autolabel_* | cut -d'_' -f2`
-#sed -i.bak "s/version=\".*\"/version=\"${VERSION}\"/g" ./puppet/instala_autolabel/manifests/init.pp
-#rm ./puppet/instala_autolabel/manifests/init.pp.bak
+VERSION=`echo ./packages/autolabel_* | cut -d'_' -f2`
+sed -i.bak "s/version=\".*\"/version=\"${VERSION}\"/g" ./puppet/instala_autolabel/manifests/init.pp
+rm ./puppet/instala_autolabel/manifests/init.pp.bak
 
-#rm ./puppet/instala_autolabel.zip
-#cd ./puppet
-#fzip instala_autolabel
-#cd ../
-#git add ./puppet/instala_autolabel.zip -v
+rm ./puppet/instala_autolabel.zip
+cd ./puppet
+fzip instala_autolabel
+cd ../
+git add ./puppet/instala_autolabel.zip -v

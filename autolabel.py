@@ -98,7 +98,7 @@ if response != 0:
 	exit()
 
 # get mac
-mac = getHwAddr('wlan0')
+mac = getHwAddr('eth0')
 
 # get username
 l = LdapConnection("ldap", "", "")
