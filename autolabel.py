@@ -100,6 +100,9 @@ if response != 0:
 # get mac
 mac = getHwAddr('eth0')
 
+# get hostname
+hostname = socket.gethostname()
+
 # get username
 l = LdapConnection("ldap", "", "")
 l.connectauth()
@@ -109,6 +112,12 @@ try:
 	username = search[0][0][1]['uniqueIdentifier'][0].replace("user-name ","")
 except:
 	username = ""
+
+try:
+	ldap_hostname = search[0][0][1]['cn'][0]
+except:
+	ldap_hostname = ""
+
 
 u = getConfigUsername()
 
@@ -145,3 +154,20 @@ elif username!="" and username!=u:
 	# Set gdm banner
 	setData(name, photo)
 
+if hostname != ldap_hostname:
+	f = open("/etc/hostname","w")
+	f.write(ldap_hostname)
+	f.close()
+
+	f = open("/etc/hosts","w")
+	f.write("127.0.0.1	localhost\n")
+	f.write("127.0.1.1	"+ldap_hostname+"\n\n")
+	f.write("# The following lines are desirable for IPv6 capable hosts\n")
+	f.write("::1	localhost ip6-localhost ip6-loopback\n")
+	f.write("fe00::0 ip6-localnet\n")
+	f.write("ff00::0 ip6-mcastprefix\n")
+	f.write("ff02::1 ip6-allnodes\n")
+	f.write("ff02::2 ip6-allrouters")
+	f.close()
+
+	os.system("hostname -F /etc/hostname")
