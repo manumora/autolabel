@@ -24,7 +24,7 @@ class instala_autolabel {
 
  file { "/var/cache/autolabel_${version}_all.deb":
           owner => root, group => root, mode => 644,
-          source => "puppet://puppetinstituto/files/autolabel_${version}_all.deb"
+          source => "puppet:///instala_autolabel/autolabel_${version}_all.deb"
  }
 
  exec { "instalar_paquete_autolabel" :
